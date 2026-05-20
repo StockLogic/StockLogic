@@ -1,32 +1,138 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Confidentialité — StockLogic</title>
-  <meta name="description" content="Politique de confidentialité du site StockLogic.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politique de confidentialité — StockLogic</title>
+  <meta name="description" content="Politique de confidentialité de StockLogic." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
+
   <style>
-    body{font-family:Arial,sans-serif;max-width:900px;margin:0 auto;padding:40px;line-height:1.7;background:#f7f6f2;color:#1a1814}
-    a{color:#1b3a6b;text-decoration:none} nav{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:32px} h1{font-size:42px;margin:16px 0}
-    .card{background:#fff;padding:28px;border:1px solid #ddd;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,.06)}
-    h2{margin-top:24px}
+    :root, [data-theme="light"] {
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --content-narrow: 760px;
+      --color-bg: #f7f6f2;
+      --color-surface: #ffffff;
+      --color-text: #1a1814;
+      --color-text-muted: #6b6966;
+      --color-primary: #1b3a6b;
+      --color-primary-light: #e8edf5;
+      --color-accent: #c49a2a;
+      --color-border: #dcd9d5;
+      --radius-xl: 1rem;
+      --radius-full: 9999px;
+      --shadow-md: 0 4px 16px rgba(0,0,0,.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+    }
+    a { color: inherit; }
+    .page {
+      max-width: var(--content-narrow);
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 4rem) 1.5rem 4rem;
+    }
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      padding: clamp(1.5rem, 4vw, 3rem);
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1rem;
+    }
+    h1, h2 {
+      font-family: var(--font-display);
+      line-height: 1.15;
+      margin: 0 0 1rem;
+    }
+    h1 { font-size: var(--text-2xl); }
+    h2 { font-size: var(--text-xl); margin-top: 2rem; }
+    p, li { color: var(--color-text-muted); }
+    ul { padding-left: 1.25rem; }
+    .note {
+      background: var(--color-primary-light);
+      border-left: 4px solid var(--color-primary);
+      padding: 1rem 1.25rem;
+      border-radius: .75rem;
+      margin: 1.25rem 0;
+    }
+    .pill {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: .35rem .8rem;
+      border-radius: var(--radius-full);
+      background: #f3efe4;
+      font-size: .85rem;
+      font-weight: 600;
+      color: #5b4a12;
+    }
+    .footer {
+      margin-top: 2rem;
+      font-size: .9rem;
+      color: var(--color-text-muted);
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="about.html">À propos</a>
-    <a href="contact.html">Contact</a>
-    <a href="mentions-legales.html">Mentions légales</a>
-    <a href="confidentialite.html">Confidentialité</a>
-  </nav>
-  <div class="card">
-    <h1>Politique de confidentialité</h1>
-    <p>StockLogic est un site statique hébergé sur GitHub Pages. À ce stade, nous ne collectons pas de données personnelles via un formulaire de contact intégré.</p>
-    <h2>Données techniques</h2>
-    <p>Si des outils d’analyse ou de statistiques sont ajoutés plus tard, une information complémentaire sera publiée ici pour expliquer les cookies ou traceurs éventuels.</p>
-    <h2>Contact</h2>
-    <p>Pour toute question liée à la confidentialité : contact@stocklogic.fr</p>
-  </div>
-</body>
-</html>
+  <main class="page">
+    <article class="card">
+      <span class="eyebrow">Confidentialité</span>
+      <h1>Politique de confidentialité</h1>
+      <p>Cette page explique quelles données StockLogic collecte, pourquoi elles sont collectées, et quels sont vos droits.</p>
+
+      <div class="note">
+        <strong>En bref :</strong> nous ne collectons pas de données inutiles. La seule donnée que nous pouvons recueillir directement est votre adresse e-mail si vous choisissez de vous inscrire à la newsletter.
+      </div>
+
+      <h2>1. Données collectées</h2>
+      <p>Nous pouvons collecter les informations suivantes :</p>
+      <ul>
+        <li>Votre adresse e-mail, uniquement si vous remplissez volontairement le formulaire d’inscription à la newsletter.</li>
+        <li>Des données techniques limitées, comme des statistiques anonymisées de navigation, si des outils d’analyse sont utilisés.</li>
+      </ul>
+
+      <h2>2. Finalité du traitement</h2>
+      <p>Votre adresse e-mail est utilisée uniquement pour vous envoyer la newsletter StockLogic, des contenus éditoriaux et des informations liées au blog.</p>
+
+      <h2>3. Base légale</h2>
+      <p>Le traitement de votre adresse e-mail repose sur votre consentement, donné de manière libre, spécifique, éclairée et univoque au moment de l’inscription.</p>
+
+      <h2>4. Newsletter</h2>
+      <p>En vous inscrivant à la newsletter, vous acceptez de recevoir des e-mails de StockLogic. Chaque message contient un lien de désinscription simple et gratuit.</p>
+      <p>Vous pouvez retirer votre consentement à tout moment en vous désinscrivant depuis l’un de nos e-mails ou en nous contactant directement.</p>
+
+      <h2>5. Conservation des données</h2>
+      <p>Votre adresse e-mail est conservée pendant la durée nécessaire à l’envoi de la newsletter, ou jusqu’à votre désinscription.</p>
+
+      <h2>6. Partage des données</h2>
+      <p>Nous ne vendons pas vos données. Elles ne sont pas partagées à des tiers à des fins commerciales.</p>
+
+      <h2>7. Vos droits</h2>
+      <p>Conformément aux règles applicables, vous pouvez demander l’accès, la rectification, la suppression ou la limita
