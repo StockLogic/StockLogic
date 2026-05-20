@@ -887,8 +887,8 @@
   (function () {
     const r = document.documentElement;
     const t = document.querySelector('[data-theme-toggle]');
-    let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
-    r.setAttribute('data-theme', d);
+       let d = 'light';
+       r.setAttribute('data-theme', d);
     function updateIcon() {
       if (!t) return;
       t.innerHTML = d === 'dark'
