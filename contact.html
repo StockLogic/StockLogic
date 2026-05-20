@@ -1,30 +1,441 @@
 <!DOCTYPE html>
 <html lang="fr" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — StockLogic</title>
-  <meta name="description" content="Contactez StockLogic pour poser une question ou proposer un sujet d'article.">
+  <meta name="description" content="Contactez StockLogic pour poser une question ou proposer un sujet d'article." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300..700&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
   <style>
-    body{font-family:Arial,sans-serif;max-width:900px;margin:0 auto;padding:40px;line-height:1.7;background:#f7f6f2;color:#1a1814}
-    a{color:#1b3a6b;text-decoration:none} nav{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:32px} h1{font-size:42px;margin:16px 0}
-    .card{background:#fff;padding:28px;border:1px solid #ddd;border-radius:16px;box-shadow:0 4px 16px rgba(0,0,0,.06)}
-    .email{font-weight:700;font-size:18px}
+    :root, [data-theme="light"] {
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'DM Sans', 'Helvetica Neue', sans-serif;
+
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+
+      --color-bg: #f7f6f2;
+      --color-surface: #faf9f6;
+      --color-surface-2: #ffffff;
+      --color-surface-offset: #f0ede8;
+      --color-divider: #dcd9d5;
+      --color-border: #d4d1ca;
+
+      --color-text: #1a1814;
+      --color-text-muted: #6b6966;
+      --color-text-faint: #b0aeaa;
+      --color-text-inverse: #f9f8f4;
+
+      --color-primary: #1b3a6b;
+      --color-primary-hover: #142d54;
+      --color-primary-light: #e8edf5;
+
+      --color-accent: #c49a2a;
+      --color-accent-light: #fdf5e0;
+
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.07);
+      --shadow-md: 0 4px 16px rgba(0,0,0,.09);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,.13);
+
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --content-wide: 1200px;
+      --content-narrow: 760px;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #111210;
+      --color-surface: #171714;
+      --color-surface-2: #1d1c1a;
+      --color-surface-offset: #141311;
+      --color-divider: #252421;
+      --color-border: #323028;
+
+      --color-text: #e8e6e2;
+      --color-text-muted: #8a8784;
+      --color-text-faint: #55534f;
+      --color-text-inverse: #1a1814;
+
+      --color-primary: #5b88d4;
+      --color-primary-hover: #7aa0dc;
+      --color-primary-light: #1e2a3d;
+
+      --color-accent: #d4a832;
+      --color-accent-light: #2a2210;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.25);
+      --shadow-md: 0 4px 16px rgba(0,0,0,.35);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,.45);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --color-bg: #111210;
+        --color-surface: #171714;
+        --color-surface-2: #1d1c1a;
+        --color-surface-offset: #141311;
+        --color-divider: #252421;
+        --color-border: #323028;
+
+        --color-text: #e8e6e2;
+        --color-text-muted: #8a8784;
+        --color-text-faint: #55534f;
+        --color-text-inverse: #1a1814;
+
+        --color-primary: #5b88d4;
+        --color-primary-hover: #7aa0dc;
+        --color-primary-light: #1e2a3d;
+
+        --color-accent: #d4a832;
+        --color-accent-light: #2a2210;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--space-20); }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.65;
+      min-height: 100dvh;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; border: 0; background: none; cursor: pointer; color: inherit; }
+    img, svg { display: block; max-width: 100%; }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: 0.375rem; }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-4);
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-md);
+      z-index: 1000;
+      transition: top var(--transition);
+    }
+    .skip-link:focus { top: var(--space-4); }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in oklch, var(--color-bg) 92%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .header-inner {
+      max-width: var(--content-wide);
+      margin-inline: auto;
+      padding: var(--space-4) var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6);
+      position: relative;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-dot { color: var(--color-accent); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+
+    .nav-link {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      transition: color var(--transition), background var(--transition);
+    }
+    .nav-link:hover {
+      color: var(--color-text);
+      background: var(--color-surface-offset);
+    }
+    .nav-link[aria-current="page"] {
+      color: var(--color-primary);
+      background: var(--color-primary-light);
+      font-weight: 600;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .btn-theme {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      display: grid;
+      place-items: center;
+      color: var(--color-text-muted);
+      transition: color var(--transition), background var(--transition);
+    }
+    .btn-theme:hover {
+      color: var(--color-text);
+      background: var(--color-surface-offset);
+    }
+
+    .btn-cta {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      padding: var(--space-2) var(--space-5);
+      border-radius: var(--radius-full);
+      transition: background var(--transition), transform var(--transition);
+    }
+    .btn-cta:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .hamburger {
+      display: none;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-md);
+      color: var(--color-text-muted);
+    }
+    .hamburger:hover {
+      background: var(--color-surface-offset);
+      color: var(--color-text);
+    }
+
+    .page {
+      max-width: var(--content-wide);
+      margin-inline: auto;
+      padding: clamp(var(--space-12), 8vw, var(--space-20)) var(--space-6);
+    }
+
+    .hero {
+      max-width: var(--content-narrow);
+      margin-bottom: var(--space-10);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-4);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero p {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: 65ch;
+    }
+
+    .card {
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      padding: clamp(var(--space-6), 4vw, var(--space-10));
+      max-width: var(--content-narrow);
+    }
+
+    .card h2 {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 400;
+      margin-bottom: var(--space-4);
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+
+    .email {
+      font-weight: 700;
+      font-size: var(--text-lg);
+      color: var(--color-primary);
+    }
+
+    .footer {
+      margin-top: var(--space-10);
+      color: var(--color-text-faint);
+      font-size: var(--text-sm);
+    }
+
+    @media (max-width: 768px) {
+      nav, .btn-cta { display: none; }
+      .hamburger { display: flex; }
+      nav.open {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-surface-2);
+        border-bottom: 1px solid var(--color-divider);
+        padding: var(--space-4);
+        gap: var(--space-1);
+      }
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="about.html">À propos</a>
-    <a href="contact.html">Contact</a>
-    <a href="mentions-legales.html">Mentions légales</a>
-    <a href="confidentialite.html">Confidentialité</a>
-  </nav>
-  <div class="card">
-    <h1>Contact</h1>
-    <p>Pour une question, une suggestion ou une idée d'article, tu peux écrire à :</p>
-    <p class="email">contact@stocklogic.fr</p>
-    <p>Tu peux aussi proposer un sujet lié aux actions, à la bourse, au PEA, aux dividendes ou à l’analyse financière.</p>
-  </div>
+  <a href="#main" class="skip-link">Aller au contenu</a>
+
+  <header>
+    <div class="header-inner">
+      <a href="./" class="logo" aria-label="StockLogic — Accueil">
+        <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="var(--color-primary)"/>
+          <polyline points="6,26 13,18 19,22 28,10" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="28" cy="10" r="2.5" fill="var(--color-accent)"/>
+        </svg>
+        Stock<span class="logo-dot">Logic</span>
+      </a>
+
+      <nav id="main-nav" aria-label="Navigation principale">
+        <a href="./" class="nav-link">Accueil</a>
+        <a href="./#topics" class="nav-link">Thèmes</a>
+        <a href="./#articles" class="nav-link">Articles</a>
+        <a href="./faq.html" class="nav-link">FAQ</a>
+        <a href="./about.html" class="nav-link">À propos</a>
+        <a href="./contact.html" class="nav-link" aria-current="page">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-theme" data-theme-toggle aria-label="Basculer le thème">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+        <a href="./#newsletter" class="btn-cta">S'abonner</a>
+        <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="page">
+    <section class="hero">
+      <div class="hero-badge">Contact</div>
+      <h1>Contact</h1>
+      <p>Pour une question, une suggestion ou une idée d'article, tu peux écrire directement à StockLogic.</p>
+    </section>
+
+    <section class="card">
+      <h2>Écris-nous</h2>
+      <p>Tu peux proposer un sujet lié aux actions, à la bourse, au PEA, aux dividendes ou à l’analyse financière.</p>
+      <p class="email"><a href="mailto:contact@stocklogic.fr">contact@stocklogic.fr</a></p>
+      <p>On lit les messages avec attention et on garde les demandes utiles pour améliorer le contenu du site.</p>
+    </section>
+
+    <p class="footer">© 2026 StockLogic — Contact</p>
+  </main>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const themeToggle = document.querySelector('[data-theme-toggle]');
+      let theme = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+
+      function updateThemeIcon() {
+        if (!themeToggle) return;
+        themeToggle.innerHTML = theme === 'dark'
+          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        themeToggle.setAttribute('aria-label', 'Basculer vers le mode ' + (theme === 'dark' ? 'clair' : 'sombre'));
+      }
+
+      updateThemeIcon();
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          theme = theme === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', theme);
+          updateThemeIcon();
+        });
+      }
+
+      const hamburger = document.querySelector('.hamburger');
+      const nav = document.getElementById('main-nav');
+
+      if (hamburger && nav) {
+        hamburger.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          hamburger.setAttribute('aria-expanded', open);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
