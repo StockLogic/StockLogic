@@ -1122,7 +1122,8 @@
     (function () {
       const r = document.documentElement;
       const t = document.querySelector('[data-theme-toggle]');
-      let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+      const saved = localStorage.getItem('theme');
+      let d = saved ? saved : 'light';
       r.setAttribute('data-theme', d);
 
       function updateIcon() {
@@ -1139,6 +1140,7 @@
         t.addEventListener('click', () => {
           d = d === 'dark' ? 'light' : 'dark';
           r.setAttribute('data-theme', d);
+          localStorage.setItem('theme', d);
           updateIcon();
         });
       }
@@ -1216,3 +1218,4 @@
   </script>
 </body>
 </html>
+
